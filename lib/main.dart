@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import './Demo/drawer_demo.dart';
 
-void main() => runApp(
+void main() =>
+    runApp(
       App(), //自己定義的Widget
     );
 
@@ -14,7 +16,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-        splashColor: Colors.white70,//水波紋效果
+        splashColor: Colors.white70, //水波紋效果
       ),
     );
   }
@@ -29,11 +31,11 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
           //一般都會用在Scaffold裏面
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            tooltip: "Navigation",
-            onPressed: () => debugPrint("Navigation button is pressed"),
-          ),
+          // leading: IconButton(
+          //   icon: const Icon(Icons.menu),
+          //   tooltip: "Navigation",
+          //   onPressed: () => debugPrint("Navigation button is pressed"),
+          // ),
           title: Text("塑蓋"),
           actions: <Widget>[
             IconButton(
@@ -58,11 +60,24 @@ class Home extends StatelessWidget {
         // body: ListViewDemo(),
         body: const TabBarView(
           children: <Widget>[
-            Icon(Icons.local_florist, size: 128.0, color: Colors.black12,),
-            Icon(Icons.change_history, size: 128.0, color: Colors.black12,),
-            Icon(Icons.directions_bike, size: 128.0, color: Colors.black12,),
+            Icon(
+              Icons.local_florist,
+              size: 128.0,
+              color: Colors.black12,
+            ),
+            Icon(
+              Icons.change_history,
+              size: 128.0,
+              color: Colors.black12,
+            ),
+            Icon(
+              Icons.directions_bike,
+              size: 128.0,
+              color: Colors.black12,
+            ),
           ],
         ),
+        drawer:DrawerDemo(),
       ),
     );
   }
