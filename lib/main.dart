@@ -20,19 +20,29 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        //一般都會用在Scaffold裏面
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          tooltip: "Navigation",
+          onPressed: () => debugPrint("Navigation button is pressed"),
+        ),
         title: Text("塑蓋"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            tooltip: "Search",
+            onPressed: () => debugPrint("Search button is pressed"),
+          ),
+        ],
         elevation: 0.0,
       ),
-      body: ListViewDemo(),
+      // body: ListViewDemo(),
+      body: null,
     );
   }
 }
-
-
