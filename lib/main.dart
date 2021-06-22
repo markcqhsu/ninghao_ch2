@@ -10,6 +10,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     //Widget build...這裡的Widget代表返回值
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Home(),
       theme: ThemeData(primarySwatch: Colors.yellow),
     );
@@ -31,11 +32,11 @@ class Home extends StatelessWidget {
           ),
           Text(
             posts[index].title,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.headline4,
           ),
           Text(
             posts[index].author,
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headline6,
           ),
           SizedBox(height: 16.0,),
         ],
