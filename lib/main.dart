@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import './Demo/drawer_demo.dart';
+import './Demo/bottom_navigation_demo.dart';
+import './Demo/listview-demo.dart';
 
-void main() =>
-    runApp(
+void main() => runApp(
       App(), //自己定義的Widget
     );
 
@@ -14,7 +15,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Home(),
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.yellow, //底部導航欄項目顏色
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
         splashColor: Colors.white70, //水波紋效果
       ),
@@ -23,6 +24,7 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -60,11 +62,12 @@ class Home extends StatelessWidget {
         // body: ListViewDemo(),
         body: const TabBarView(
           children: <Widget>[
-            Icon(
-              Icons.local_florist,
-              size: 128.0,
-              color: Colors.black12,
-            ),
+            ListViewDemo(),
+            // Icon(
+            //   Icons.local_florist,
+            //   size: 128.0,
+            //   color: Colors.black12,
+            // ),
             Icon(
               Icons.change_history,
               size: 128.0,
@@ -77,7 +80,8 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-        drawer:DrawerDemo(),
+        drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigationDemo(),
       ),
     );
   }
