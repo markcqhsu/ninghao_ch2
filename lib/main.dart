@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './Demo/drawer_demo.dart';
 import './Demo/bottom_navigation_demo.dart';
 import './Demo/listview-demo.dart';
+import './Demo/basic_demo.dart';
 
 void main() => runApp(
       App(), //自己定義的Widget
@@ -60,7 +61,7 @@ class Home extends StatelessWidget {
           ),
         ),
         // body: ListViewDemo(),
-        body: const TabBarView(
+        body: TabBarView(
           children: <Widget>[
             ListViewDemo(),
             // Icon(
@@ -68,11 +69,12 @@ class Home extends StatelessWidget {
             //   size: 128.0,
             //   color: Colors.black12,
             // ),
-            Icon(
-              Icons.change_history,
-              size: 128.0,
-              color: Colors.black12,
-            ),
+            // Icon(
+            //   Icons.change_history,
+            //   size: 128.0,
+            //   color: Colors.black12,
+            // ),
+            BasicDemo(),
             Icon(
               Icons.directions_bike,
               size: 128.0,
