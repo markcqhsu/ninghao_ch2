@@ -3,6 +3,7 @@ import './Demo/drawer_demo.dart';
 import './Demo/bottom_navigation_demo.dart';
 import './Demo/listview-demo.dart';
 import './Demo/basic_demo.dart';
+import './Demo/layout_demo.dart';
 
 void main() => runApp(
       App(), //自己定義的Widget
@@ -63,23 +64,31 @@ class Home extends StatelessWidget {
         // body: ListViewDemo(),
         body: TabBarView(
           children: <Widget>[
-            ListViewDemo(),
+
+            //----把第一個視圖換成ListViewDemo
             // Icon(
             //   Icons.local_florist,
             //   size: 128.0,
             //   color: Colors.black12,
             // ),
+            ListViewDemo(),
+
+            //----把第二個視圖換成Basic_Demo
             // Icon(
             //   Icons.change_history,
             //   size: 128.0,
             //   color: Colors.black12,
             // ),
             BasicDemo(),
-            Icon(
-              Icons.directions_bike,
-              size: 128.0,
-              color: Colors.black12,
-            ),
+
+            //----把第三個視圖換成Layout_Demo
+            // Icon(
+            //   Icons.directions_bike,
+            //   size: 128.0,
+            //   color: Colors.black12,
+            // ),
+            LayoutDemo(),
+
           ],
         ),
         drawer: DrawerDemo(),
