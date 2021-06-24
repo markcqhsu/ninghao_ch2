@@ -5,6 +5,8 @@ import './Demo/listview-demo.dart';
 import './Demo/basic_demo.dart';
 import './Demo/layout_demo.dart';
 import './Demo/view_demo.dart';
+import './Demo/sliver_demo.dart';
+
 
 void main() => runApp(
       App(), //自己定義的Widget
@@ -17,6 +19,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
+      // home: SliverDemo(),
       theme: ThemeData(
         primarySwatch: Colors.yellow, //底部導航欄項目顏色
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
@@ -92,8 +95,8 @@ class Home extends StatelessWidget {
             // ),
             LayoutDemo(),
 
-            viewDemo(),
-
+            // viewDemo(),
+            SliverDemo(),
 
           ],
         ),
