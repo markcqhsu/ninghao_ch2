@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import './Demo/drawer_demo.dart';
 import './Demo/bottom_navigation_demo.dart';
-import './Demo/listview-demo.dart';
+import './Demo/listview_demo.dart';
 import './Demo/basic_demo.dart';
 import './Demo/layout_demo.dart';
 import './Demo/view_demo.dart';
 import './Demo/sliver_demo.dart';
-
+import './Demo/navigator_demo.dart';
 
 void main() => runApp(
       App(), //自己定義的Widget
@@ -18,6 +18,13 @@ class App extends StatelessWidget {
     //Widget build...這裡的Widget代表返回值
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // home: NavigatorDemo(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/':(context)=> NavigatorDemo(),
+      //   '/about':(context) => Page2 (title:"About title"),
+      //
+      // },
       home: Home(),
       // home: SliverDemo(),
       theme: ThemeData(
