@@ -1,17 +1,12 @@
-# flutter_0622_01
+# flutter_2021_06 自學紀錄
 
-A new Flutter project.
+Ninghao.net flutter 教程自學範例檔
 
-## Getting Started
+## 內容
 
-This project is a starting point for a Flutter application.
+跟著影片的進度學習, 從第二章開始,
+因為第一章是環境安裝就跳過了.
 
-A few resources to get you started if this is your first Flutter project:
+之後的章節也都順便練習建立Git的Branch, 
+希望堅持一個月之後能夠開始做個小專案～
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# ninghao_ch2
