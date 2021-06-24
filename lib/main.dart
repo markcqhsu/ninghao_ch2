@@ -4,9 +4,9 @@ import './Demo/bottom_navigation_demo.dart';
 import './Demo/listview_demo.dart';
 import './Demo/basic_demo.dart';
 import './Demo/layout_demo.dart';
-import './Demo/view_demo.dart';
+// import './Demo/view_demo.dart';
 import './Demo/sliver_demo.dart';
-import './Demo/navigator_demo.dart';
+// import './Demo/navigator_demo.dart';
 
 void main() => runApp(
       App(), //自己定義的Widget
