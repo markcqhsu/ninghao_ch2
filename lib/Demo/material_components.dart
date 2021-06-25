@@ -46,6 +46,7 @@ class FloatingActionButtonDemo extends StatelessWidget {
         elevation: 0.0,
       ),
       floatingActionButton: _floaringActionButtonExtended,
+      // floatingActionButton: _floaringActionButton,
     );
   }
 }
