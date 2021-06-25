@@ -107,17 +107,29 @@ class _RegisterFormState extends State<RegisterForm> {
           ), //在表單和按鈕中間增加一個間格
           Container(
             width: double.infinity,
-            child: RaisedButton(
-              color: Theme.of(context).colorScheme.secondary,
-              child: Text(
-                "Register",
-                style: TextStyle(color: Colors.white),
+            child: ElevatedButton(
+              child: const Text("Register",style: TextStyle(color: Colors.white),),
+              style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).colorScheme.secondary,
+                textStyle: TextStyle(fontSize: 20),
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 25),
+                elevation: 1.0,//陰影效果
               ),
-              elevation: 0.0,
               onPressed: () {
                 submitRegisterForm();
               },
             ),
+            // child: RaisedButton(
+            //   color: Theme.of(context).colorScheme.secondary,
+            //   child: Text(
+            //     "Register",
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            //   elevation: 0.0,
+            //   onPressed: () {
+            //     submitRegisterForm();
+            //   },
+            // ),
           ),
         ],
       ),
