@@ -6,32 +6,52 @@ import './Demo/basic_demo.dart';
 import './Demo/layout_demo.dart';
 // import './Demo/view_demo.dart';
 import './Demo/sliver_demo.dart';
-// import './Demo/navigator_demo.dart';
+import 'Demo/navigator_demo.dart';
+import './Demo/form_demo.dart';
 
 void main() => runApp(
       App(), //自己定義的Widget
     );
 
 class App extends StatelessWidget {
+
+  final ColorScheme colorScheme = const ColorScheme(
+    primary: Colors.black, // <---- I set white color here
+    primaryVariant: Color(0xFF117378),
+    secondary: Color.fromRGBO(3, 54, 255, 1.0),
+    secondaryVariant: Color(0xFFFAFBFB),
+    background: Color(0xFF636363),
+    surface: Color(0xFF808080),
+    onBackground: Colors.white,
+    error: Colors.redAccent,
+    onError: Colors.redAccent,
+    onPrimary: Colors.redAccent,
+    onSecondary: Color(0xFF322942),
+    onSurface: Color(0xFF241E30),
+    brightness: Brightness.light,
+  );
+
   @override
   Widget build(BuildContext context) {
     //Widget build...這裡的Widget代表返回值
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: NavigatorDemo(),
-      // initialRoute: '/',
-      // routes: {
-      //   '/':(context)=> NavigatorDemo(),
-      //   '/about':(context) => Page2 (title:"About title"),
-      //
-      // },
-      home: Home(),
+      initialRoute: '/form',
+      routes: {
+        '/':(context)=> Home(),
+        '/about':(context) => Page2 (title:"About title"),
+        '/form':(context) => FormDemo(),
+      },
+      // home: Home(),
       // home: SliverDemo(),
       theme: ThemeData(
         primarySwatch: Colors.yellow, //底部導航欄項目顏色
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
         splashColor: Colors.white70, //水波紋效果
-      ),
+        // accentColor: Color.fromRGBO(3, 54, 255, 1.0),
+        colorScheme: colorScheme,
+    ),
     );
   }
 }
