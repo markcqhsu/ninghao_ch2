@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'button_demo.dart';
+import 'floating_action_button.dart';
+import 'popup_menu_button_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -11,6 +14,14 @@ class MaterialComponents extends StatelessWidget {
       body: ListView(
         children: [
           ListItem(
+            title: "PopupMenuButton",
+            page: PopupMenuButtonDemo(),
+          ),
+          ListItem(
+            title: "Button",
+            page: BottonDemo(),
+          ),
+          ListItem(
             title: "FloatingActionButton",
             page: FloatingActionButtonDemo(),
           ),
@@ -20,36 +31,34 @@ class MaterialComponents extends StatelessWidget {
   }
 }
 
-class FloatingActionButtonDemo extends StatelessWidget {
+
+
+
+class _WidgetDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Widget _floaringActionButton = FloatingActionButton(
-      onPressed: () {},
-      child: Icon(Icons.add),
-      elevation: 0.0,
-      //控制與下一層的高度
-      backgroundColor: Colors.blue,
-      shape: BeveledRectangleBorder(
-        borderRadius: BorderRadius.circular(30.0),
-      ),
-    );
-
-    final Widget _floaringActionButtonExtended = FloatingActionButton.extended(
-      onPressed: () {},
-      icon: Icon(Icons.add),
-      label: Text("add"),
-    );
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("FlloatingActionButtonDemo"),
+        title: Text("_WidgetDemo"),
         elevation: 0.0,
       ),
-      floatingActionButton: _floaringActionButtonExtended,
-      // floatingActionButton: _floaringActionButton,
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
+
+
 
 class ListItem extends StatelessWidget {
   final String title;
