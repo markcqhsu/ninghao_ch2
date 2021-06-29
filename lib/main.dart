@@ -48,7 +48,7 @@ class App extends StatelessWidget {
       // home: Home(),
       // home: SliverDemo(),
       theme: ThemeData(
-        primarySwatch: Colors.yellow, //底部導航欄項目顏色
+        primarySwatch: Colors.blue, //底部導航欄項目顏色
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
         splashColor: Colors.white70, //水波紋效果
         // accentColor: Color.fromRGBO(3, 54, 255, 1.0),
