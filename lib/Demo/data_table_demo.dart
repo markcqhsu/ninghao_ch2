@@ -104,6 +104,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
               ),
             ],
           ),
-        ));
+        )
+    );
   }
 }
