@@ -28,7 +28,11 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
   void initState() {
     super.initState();
     _textFieldSubject = PublishSubject<String>();
-    _textFieldSubject.listen((data) => print(data));
+    _textFieldSubject
+        // .map((item) => "item: $item")
+        // .where((item) => item.length >9)
+        // .debounce(Duration(milliseconds: 500)) //無法使用
+        .listen((data) => print(data));
 
 
     // PublishSubject<String> _subject = PublishSubject<String>();
