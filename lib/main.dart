@@ -9,6 +9,7 @@ import './Demo/sliver_demo.dart';
 import 'Demo/navigator_demo.dart';
 import './Demo/form_demo.dart';
 import './Demo/material_components.dart';
+import 'Demo/state/state_management_demo.dart';
 
 void main() => runApp(
       App(), //自己定義的Widget
@@ -38,12 +39,13 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: NavigatorDemo(),
-      initialRoute: '/mdc',
+      initialRoute: '/state-management',
       routes: {
         '/':(context)=> Home(),
         '/about':(context) => Page2 (title:"About title"),
         '/form':(context) => FormDemo(),
         '/mdc':(context)=> MaterialComponents(),
+        '/state-management':(context)=> StateManagementDemo(),
       },
       // home: Home(),
       // home: SliverDemo(),
