@@ -24,6 +24,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   late StreamSubscription _streamDemoSubscription;
   late StreamController<String> _streamDemo;
   late StreamSink _sinkDemo;
+  String _data= "...";
 
   @override
   void dispose() {
@@ -65,6 +66,9 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   }
 
   void onData(String data) {
+    setState(() {
+      _data = data;
+    });
     print("$data");
   }
 
@@ -103,24 +107,37 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-              onPressed: _addDataToStream,
-              child: Text("Add"),
+            // Text(_data),
+            StreamBuilder(
+              stream: _streamDemo.stream,
+              initialData: "...",
+              builder: (context, snapshot){
+                return Text("${snapshot.data}");
+              },
             ),
-            TextButton(
-              onPressed: _pauseStream,
-              child: Text("pause"),
-            ),
-            TextButton(
-              onPressed: _resumeStream,
-              child: Text("Resume"),
-            ),
-            TextButton(
-              onPressed: _cancelStream,
-              child: Text("Cancel"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: _addDataToStream,
+                  child: Text("Add"),
+                ),
+                TextButton(
+                  onPressed: _pauseStream,
+                  child: Text("pause"),
+                ),
+                TextButton(
+                  onPressed: _resumeStream,
+                  child: Text("Resume"),
+                ),
+                TextButton(
+                  onPressed: _cancelStream,
+                  child: Text("Cancel"),
+                ),
+              ],
             ),
           ],
         ),
