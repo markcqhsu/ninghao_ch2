@@ -6,6 +6,7 @@ import './Demo/basic_demo.dart';
 import './Demo/layout_demo.dart';
 // import './Demo/view_demo.dart';
 import './Demo/sliver_demo.dart';
+import 'Demo/bloc/bloc_demo.dart';
 import 'Demo/navigator_demo.dart';
 import './Demo/form_demo.dart';
 import './Demo/material_components.dart';
@@ -41,7 +42,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: NavigatorDemo(),
-      initialRoute: '/rxdart',
+      initialRoute: '/bloc',
       routes: {
         '/':(context)=> Home(),
         '/about':(context) => Page2 (title:"About title"),
@@ -49,6 +50,7 @@ class App extends StatelessWidget {
         '/mdc':(context)=> MaterialComponents(),
         '/stream':(context)=> StreamDemo(),
         '/rxdart':(context)=> RxDartDemo(),
+        '/bloc':(context)=> BlocDemo(),
         // '/state-management':(context)=> StateManagementDemo(),
       },
       // home: Home(),
