@@ -22,16 +22,25 @@ class StreamDemoHome extends StatefulWidget {
 
 class _StreamDemoHomeState extends State<StreamDemoHome> {
   late StreamSubscription _streamDemoSubscription;
+  late StreamController<String> _streamDemo;
+  late StreamSink _sinkDemo;
+
+  @override
+  void dispose() {
+    _streamDemo.close();
+    super.dispose();
+  }
 
   @override
   void initState() {
     super.initState();
     print("Create a Stream. 創建Stream 之前");
-
-    Stream<String> _streamDemo = Stream.fromFuture(fetchData());
+    // Stream<String> _streamDemo = Stream.fromFuture(fetchData());
+    _streamDemo = StreamController<String>();
+    _sinkDemo = _streamDemo.sink;
 
     print("Start listening on a stream. 監聽/訂閱 Stream");
-    _streamDemoSubscription = _streamDemo.listen(
+    _streamDemoSubscription = _streamDemo.stream.listen(
       onData,
       onError: onError,
       onDone: onDone,
@@ -65,6 +74,12 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     _streamDemoSubscription.cancel();
   }
 
+  void _addDataToStream() async{
+    print("Add data to Stream");
+    String data = await fetchData();
+    // _streamDemo.add(data);
+    _sinkDemo.add(data);
+  }
 
 
   Future<String> fetchData() async {
@@ -80,6 +95,10 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextButton(
+              onPressed: _addDataToStream,
+              child: Text("Add"),
+            ),
             TextButton(
               onPressed: _pauseStream,
               child: Text("pause"),
