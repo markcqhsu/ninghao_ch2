@@ -85,6 +85,7 @@ class CounterBloc {
 
   void disponse(){
     _counterActionController.close();
+    _counterController.close();
   }
 
 
