@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
+// import 'package:scoped_model/scoped_model.dart';
 
 //------使用ScopedModel
-class StateManagementDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ScopedModel(
-      model: CounterModel(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("StateManagementDemo"),
-          elevation: 0.0,
-        ),
-        body: CounterWrapper(),
-        floatingActionButton: ScopedModelDescendant<CounterModel>(
-          rebuildOnChange: false,
-          builder: (context, _, model) => FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: model.increaseCount,
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class StateManagementDemo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ScopedModel(
+//       model: CounterModel(),
+//       child: Scaffold(
+//         appBar: AppBar(
+//           title: Text("StateManagementDemo"),
+//           elevation: 0.0,
+//         ),
+//         body: CounterWrapper(),
+//         floatingActionButton: ScopedModelDescendant<CounterModel>(
+//           rebuildOnChange: false,
+//           builder: (context, _, model) => FloatingActionButton(
+//             child: Icon(Icons.add),
+//             onPressed: model.increaseCount,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 //-----原本的------
 // class StateManagementDemo extends StatefulWidget {
@@ -61,20 +61,20 @@ class StateManagementDemo extends StatelessWidget {
 //   }
 // }
 
-class CounterWrapper extends StatelessWidget {
-  // final int count;//從父被接受參數
-  // final VoidCallback increaseCount;//從父輩接受回調
-  // CounterWrapper(this.count, this.increaseCount);
+// class CounterWrapper extends StatelessWidget {
+//   // final int count;//從父被接受參數
+//   // final VoidCallback increaseCount;//從父輩接受回調
+//   // CounterWrapper(this.count, this.increaseCount);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Counter(),
+//     );
+//   }
+// }
 
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Counter(),
-    );
-  }
-}
-
-class Counter extends StatelessWidget {
+// class Counter extends StatelessWidget {
   //因為透過inheritted Widget所以都不需要這樣傳遞參數
   // final int count;//從父被接受參數
   // final VoidCallback increaseCount;//從父輩接受回調
@@ -91,15 +91,15 @@ class Counter extends StatelessWidget {
   // }
 
   //------使用ScopedModel------
-  @override
-  Widget build(BuildContext context) {
-    return ScopedModelDescendant<CounterModel>(
-        builder: (context, _, model) => ActionChip(
-              label: Text("${model.count}"),
-              onPressed: model.increaseCount,
-            ));
-  }
-}
+  // @override
+  // Widget build(BuildContext context) {
+  //   return ScopedModelDescendant<CounterModel>(
+  //       builder: (context, _, model) => ActionChip(
+  //             label: Text("${model.count}"),
+  //             onPressed: model.increaseCount,
+  //           ));
+  // }
+// }
 
 // class StateManagementDemo extends StatelessWidget {
 //   int count = 0;
@@ -151,13 +151,13 @@ class CounterProvider extends InheritedWidget {
   }
 }
 
-class CounterModel extends Model {
-  int _count = 0;
-
-  int get count => _count;
-
-  void increaseCount() {
-    _count += 1;
-    notifyListeners();
-  }
-}
+// class CounterModel extends Model {
+//   int _count = 0;
+//
+//   int get count => _count;
+//
+//   void increaseCount() {
+//     _count += 1;
+//     notifyListeners();
+//   }
+// }
