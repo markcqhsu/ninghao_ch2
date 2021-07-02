@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AnimationDemo extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,13 +15,12 @@ class AnimationDemo extends StatelessWidget {
 }
 
 class AnimationDemoHome extends StatefulWidget {
-
   @override
   _AnimationDemoHomeState createState() => _AnimationDemoHomeState();
 }
 
 class _AnimationDemoHomeState extends State<AnimationDemoHome>
-with TickerProviderStateMixin{
+    with TickerProviderStateMixin {
   late AnimationController animationDemoController;
   late Animation animation;
   late Animation animationColor;
@@ -37,24 +35,27 @@ with TickerProviderStateMixin{
       // upperBound: 100.0,
       duration: Duration(milliseconds: 1000),
       vsync: this,
-    );//初始化animationDemoController的值
+    ); //初始化animationDemoController的值
 
-    curve = CurvedAnimation(parent: animationDemoController, curve: Curves.bounceOut);
+    curve = CurvedAnimation(
+        parent: animationDemoController, curve: Curves.bounceOut);
 
     animation = Tween(begin: 32.0, end: 100.0).animate(curve);
-    animationColor = ColorTween(begin: Colors.red, end: Colors.red[500]).animate(curve);
+    animationColor =
+        ColorTween(begin: Colors.red, end: Colors.red[500]).animate(curve);
 
     //設定監聽器
-    animationDemoController.addListener(() {
-      // print("${animationDemoController.value}");
-      setState(() {
-
-      });
-    });
+    //因為設定了監聽器, 動畫值有變化, 就會重繪
+    // animationDemoController.addListener(() {
+    //   // print("${animationDemoController.value}");
+    //   setState(() {
+    //
+    //   });
+    // });
 
     //監聽動畫運行狀態
     animationDemoController.addStatusListener((AnimationStatus status) {
-        print(status);
+      print(status);
     });
     // 開始播放動畫
     // animationDemoController.forward();
@@ -69,20 +70,9 @@ with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: IconButton(
-        icon: Icon(Icons.favorite),
-        iconSize: animation.value,
-        color: animationColor.value,
-        onPressed: (){
-          // animationDemoController.forward();
-          switch(animationDemoController.status){
-            case AnimationStatus.completed:
-              animationDemoController.reverse();
-              break;
-            default:
-              animationDemoController.forward();
-          }
-        },
+      child: AnimatedHeart(
+        animations: [animation, animationColor],
+        controller: animationDemoController,
       ),
       // child: ActionChip(
       //   label: Text("${animationDemoController.value}"),
@@ -90,6 +80,34 @@ with TickerProviderStateMixin{
       //     animationDemoController.forward();
       //   },
       // ),
+    );
+  }
+}
+
+//自己建立AnimatedWidget
+class AnimatedHeart extends AnimatedWidget {
+  final List animations;
+  final AnimationController controller;
+
+  AnimatedHeart({required this.animations, required this.controller})
+      : super(listenable: controller);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(Icons.favorite),
+      iconSize: animations[0].value,
+      color: animations[1].value,
+      onPressed: () {
+        // animationDemoController.forward();
+        switch (controller.status) {
+          case AnimationStatus.completed:
+            controller.reverse();
+            break;
+          default:
+            controller.forward();
+        }
+      },
     );
   }
 }
