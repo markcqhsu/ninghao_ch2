@@ -26,6 +26,7 @@ with TickerProviderStateMixin{
   late AnimationController animationDemoController;
   late Animation animation;
   late Animation animationColor;
+  late CurvedAnimation curve;
 
   @override
   void initState() {
@@ -38,8 +39,10 @@ with TickerProviderStateMixin{
       vsync: this,
     );//初始化animationDemoController的值
 
-    animation = Tween(begin: 32.0, end: 100.0).animate(animationDemoController);
-    animationColor = ColorTween(begin: Colors.red, end: Colors.red[500]).animate(animationDemoController);
+    curve = CurvedAnimation(parent: animationDemoController, curve: Curves.bounceOut);
+
+    animation = Tween(begin: 32.0, end: 100.0).animate(curve);
+    animationColor = ColorTween(begin: Colors.red, end: Colors.red[500]).animate(curve);
 
     //設定監聽器
     animationDemoController.addListener(() {
