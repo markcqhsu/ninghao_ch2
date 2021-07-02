@@ -54,7 +54,7 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     // print("${json.encode(postModel)}");//輸出一個使用Josn.encode轉換之後的model
   }
 
-  Future<List<Post>> fetchPosts() async{
+  Future<List<Post>> fetchPosts() async{//這個fetchPosts()返回的值是一個Future
     var url = Uri.parse("https://resources.ninghao.net/demo/posts.json");
     final response = await http.get(url);
     // print("statusCode: ${response.statusCode}");
@@ -75,7 +75,29 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return FutureBuilder(builder: (BuildContext context, AsyncSnapshot snapshot){
+      print("data: ${snapshot.data}");
+      print("connectionState: ${snapshot.connectionState}");
+      // return Container();
+
+      if(snapshot.connectionState == ConnectionState.waiting ){
+        return Center(
+          child: Text("loading..."),
+        );
+      }
+
+      return ListView(
+        children: snapshot.data.map<Widget>((item){
+          return ListTile(
+            title: Text(item.title),
+            subtitle: Text(item.author),
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(item.imageUrl),
+            ),
+          );
+        }).toList(),
+      );
+    }, future: fetchPosts(),);
   }
 }
 
