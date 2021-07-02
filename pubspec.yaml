@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   intl: ^0.17.0
 #  scoped_model: ^1.1.0
   rxdart: ^0.27.1
@@ -44,6 +45,8 @@ dependencies:
 
 dev_dependencies:
   flutter_test:
+    sdk: flutter
+  flutter_driver:
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
