@@ -29,7 +29,7 @@ with TickerProviderStateMixin{
     super.initState();
     animationDemoController = AnimationController(
       value: 32.0,//動畫的初始值
-      lowerBound: 0.0,
+      lowerBound: 32.0,
       upperBound: 100.0,
       duration: Duration(milliseconds: 3000),
       vsync: this,
@@ -44,6 +44,10 @@ with TickerProviderStateMixin{
       });
     });
 
+    //監聽動畫運行狀態
+    animationDemoController.addStatusListener((AnimationStatus status) {
+        print(status);
+    });
     // 開始播放動畫
     // animationDemoController.forward();
   }
@@ -57,12 +61,26 @@ with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ActionChip(
-        label: Text("${animationDemoController.value}"),
+      child: IconButton(
+        icon: Icon(Icons.favorite),
+        iconSize: animationDemoController.value,
         onPressed: (){
-          animationDemoController.forward();
+          // animationDemoController.forward();
+          switch(animationDemoController.status){
+            case AnimationStatus.completed:
+              animationDemoController.reverse();
+              break;
+            default:
+              animationDemoController.forward();
+          }
         },
       ),
+      // child: ActionChip(
+      //   label: Text("${animationDemoController.value}"),
+      //   onPressed: (){
+      //     animationDemoController.forward();
+      //   },
+      // ),
     );
   }
 }
